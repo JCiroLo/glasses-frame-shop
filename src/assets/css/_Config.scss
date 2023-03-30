@@ -1,0 +1,42 @@
+$unit: 8px;
+
+$navHeight: $unit * 8;
+
+// Page colors
+$PremiumColorFront: #2ce5ff;
+$PremiumColorBack: #0094c9;
+$PrincipalColor: #353338;
+$SecondaryColor: #58545c99;
+$FontColor: #5f6368;
+
+$color_main: #0094c9;
+
+// Layout colors
+$shadow: rgba(
+    $color: #000,
+    $alpha: 0.1,
+);
+$shadow-active: rgba(
+    $color: #000,
+    $alpha: 0.05,
+);
+$muted: #495057;
+$back_modal_color: rgba(
+    $color: #000000,
+    $alpha: 0.25,
+);
+
+// Border
+$BorderRadius: 0em;
+
+// TRANSITIONS
+
+$transition_duration: 0.2s;
+
+@mixin transition($properties...) {
+    $value: "";
+    @each $property in $properties {
+        $value: $value + $property + " " + $transition_duration + ", ";
+    }
+    transition: #{$value};
+}

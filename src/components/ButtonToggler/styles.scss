@@ -1,0 +1,31 @@
+@import "../../assets/css/Config";
+
+button.btn-toggler {
+	all: unset;
+	position: relative;
+	width: $unit * 4;
+	height: $unit * 4;
+
+	cursor: pointer;
+
+	.icon {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+		visibility: hidden;
+		transform: rotate(90deg) scale(0.5);
+		@include transition("trasform", "opacity", "visibility");
+
+		&.active {
+			opacity: 1;
+			visibility: visible;
+			transform: rotate(0deg) scale(1);
+		}
+	}
+}

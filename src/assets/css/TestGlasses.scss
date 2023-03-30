@@ -1,0 +1,90 @@
+@import "Config";
+
+.Test {
+    height: calc(100vh - 73px);
+    position: relative;
+
+    .konvajs-content {
+        box-shadow: 0 0 20px $shadow;
+    }
+
+    video {
+        position: fixed;
+    }
+
+    .custom-file-upload input[type="file"] {
+        display: none;
+    }
+
+    .test-actions-container {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+
+        bottom: 0;
+        left: 0;
+        z-index: 300;
+        width: 100%;
+        margin-bottom: 2em;
+
+        .test-actions {
+            display: flex;
+
+            padding: 5px;
+
+            background-color: $PrincipalColor;
+            box-shadow: 0 0 0 3px $SecondaryColor;
+            border-radius: 100px;
+
+            .material-icons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                cursor: pointer;
+                color: white;
+                user-select: none;
+                font-size: 2em;
+
+                transition: background-color 0.1s ease-in;
+
+                &:active {
+                    background-color: #99999955;
+                }
+            }
+        }
+    }
+
+    .menu-options {
+        .btn {
+            font-size: 1.5em;
+            margin: 8px 0;
+
+            i.material-icons {
+                margin-right: 0.5em;
+            }
+
+            .spinner-border {
+                color: white;
+                width: 1.25em;
+                height: 1.25em;
+                margin-right: 0.5em;
+            }
+
+            &:active {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+/* // Mid devices
+@media screen and (max-width: 767.98px) {
+    .Test {
+        .test-actions-container {
+            
+        }
+    }
+} */

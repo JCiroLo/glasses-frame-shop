@@ -1,0 +1,166 @@
+@import "Config";
+
+.home-page {
+	margin-bottom: $unit * 20;
+
+	.carousel-image {
+		width: 100vw;
+		height: 100vh;
+		background-attachment: local;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: 0 center;
+	}
+
+	section {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+
+		&.full {
+			height: 100vh;
+
+			h2 {
+				position: absolute;
+			}
+		}
+
+		&.half {
+			height: 50vh;
+
+			h2 {
+				position: absolute;
+			}
+		}
+
+		&:not(.full) {
+			h2 {
+				margin: $unit * 2 $unit * 4;
+				margin-top: $unit * 8;
+			}
+
+			.best-sells,
+			.best-offers {
+				padding: 0 $unit * 4;
+			}
+		}
+
+		h2 {
+			z-index: 20;
+			left: 0;
+			margin: $unit * 2;
+			font-size: 2rem;
+			font-weight: bold;
+			pointer-events: none;
+			color: black;
+			/* writing-mode: vertical-rl;
+			text-orientation: mixed; */
+		}
+
+		.glass-categories {
+			display: flex;
+			flex-wrap: wrap;
+			height: 100%;
+
+			&:hover {
+				.glasses {
+					&:not(:hover) {
+						flex-basis: 25%;
+						transition: flex-basis 0.25s;
+					}
+				}
+			}
+
+			.glasses {
+				position: relative;
+				background-color: white;
+				flex-basis: 33.33%;
+				height: 100%;
+				cursor: pointer;
+				transition: flex-basis 0.25s;
+
+				&:hover {
+					flex-basis: 50%;
+
+					span {
+						visibility: visible;
+						opacity: 1;
+						transform: translate(-50%, 50%);
+					}
+
+					.image {
+						&::after {
+							opacity: 1 !important;
+						}
+					}
+				}
+
+				.image {
+					height: 100%;
+					background-attachment: local;
+					background-repeat: no-repeat;
+					background-size: cover;
+					background-position: center;
+
+					&::after {
+						content: "";
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						opacity: 0;
+						background-image: linear-gradient(180deg, transparent 50%, rgba(black, 1) 150%);
+						@include transition("opacity");
+					}
+				}
+
+				span {
+					position: absolute;
+					z-index: 100;
+					bottom: 50%;
+					left: 50%;
+					width: 100%;
+					padding: $unit 0;
+					opacity: 0;
+					visibility: hidden;
+					text-transform: uppercase;
+					font-size: 4rem;
+					font-weight: bold;
+					text-align: center;
+					color: white;
+					transform: translate(-50%, 150%);
+					@include transition("opacity", "visibility", "transform");
+				}
+			}
+		}
+
+		.brands {
+			width: 100%;
+
+			img {
+				object-fit: cover;
+				padding: $unit * 4;
+			}
+		}
+
+		.best-sells,
+		.best-offers {
+			width: 100%;
+		}
+	}
+}
+
+// Mid devices
+@media screen and (max-width: 991.98px) {
+	.Home {
+		.brands {
+			.image {
+				flex: 0 1 33.333%;
+				height: 100px;
+			}
+		}
+
+		.politics-and-copyright {
+			text-align: center;
+		}
+	}
+}

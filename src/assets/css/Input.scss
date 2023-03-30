@@ -1,0 +1,22 @@
+@import "Config";
+
+.input-container {
+	padding: $unit * 0.5 $unit * 1.25;
+	border-radius: $unit * 4;
+	background-color: rgba(black, 0.05);
+
+	@include transition("background-color");
+
+	&:focus-within {
+		background-color: rgba(black, 0.1);
+	}
+
+	input {
+		all: unset;
+		padding: $unit $unit * 2;
+	}
+
+	.icon {
+		cursor: pointer;
+	}
+}

@@ -1,0 +1,116 @@
+@import "Config";
+
+.Management {
+    .show {
+        .upload-images {
+            display: inline-block !important;
+        }
+    }
+
+    .uploading-progress {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .progress {
+            width: 100%;
+
+            .progress-bar {
+                background-color: $PrincipalColor;
+            }
+        }
+    }
+
+    .title {
+        margin: 0.5em 0;
+        padding: 1em;
+        font-weight: bold;
+        background-color: $PrincipalColor;
+        color: white;
+    }
+
+    .create {
+        form {
+            align-items: center;
+
+            .upload-images {
+                position: relative;
+                cursor: pointer;
+                width: 100%;
+                margin: 0;
+                display: none;
+
+                .slider {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+
+                    .thumbs {
+                        background-attachment: local;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        background-position: center;
+                        height: 202.5px;
+                        border-radius: 0.25em;
+                    }
+                    .slick-list,
+                    .slick-track,
+                    div,
+                    span {
+                        height: 100%;
+                    }
+                }
+
+                input[type="file"] {
+                    position: absolute;
+                    opacity: 0;
+                    display: none;
+                }
+
+                img {
+                    width: inherit;
+                }
+            }
+        }
+    }
+
+    .manage-actions {
+        display: flex;
+        margin-bottom: 0.5em;
+        padding: 0 0.5em;
+
+        button {
+            display: flex;
+            margin: 0.5em 0.5em;
+            padding: 0.5em 0.75em;
+            border-radius: 0.25em;
+
+            transition: background-color 0.2s, box-shadow 0.2s;
+
+            .material-icons {
+                margin: 0 0.5em 0 0;
+            }
+
+            &:hover {
+                background-color: $shadow;
+            }
+
+            &:active {
+                box-shadow: 0 0 0 2px $SecondaryColor !important;
+            }
+        }
+    }
+}
+
+.swal2-container {
+    z-index: 3000;
+}
+
+@media (max-width: 767.98px) {
+    .Management {
+        .manage-actions {
+            justify-content: center;
+        }
+    }
+}

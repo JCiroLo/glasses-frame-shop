@@ -1,0 +1,111 @@
+@import "Config";
+
+.frame-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	overflow: hidden;
+	padding: $unit * 2;
+	border-radius: $unit * 0.5;
+	transition: background-color 0.25s ease-out;
+
+	&:hover {
+		background-color: $shadow;
+
+		.offer {
+			background-color: rgba(255, 0, 0, 1);
+		}
+	}
+
+	&:active {
+		background-color: $shadow-active;
+	}
+
+	.offer {
+		position: absolute;
+		top: 0.6rem;
+		right: -2rem;
+		padding: 0.5em 2rem;
+		background-color: tomato;
+		color: white;
+		font-weight: bold;
+		border-radius: 0;
+		font-size: 0.75em;
+		transform: rotate(45deg);
+
+		transition: background-color 0.25s ease-out;
+	}
+
+	img {
+		width: 100%;
+		margin: 10px 0;
+		object-fit: cover;
+		aspect-ratio: 16 / 9;
+	}
+
+	.info {
+		h5 {
+			text-align: center;
+		}
+
+		p.price {
+			text-align: center;
+
+			span {
+				text-decoration: line-through;
+				color: #bbb;
+			}
+
+			strong {
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+div.frame {
+	outline: 1px solid $SecondaryColor;
+
+	&:hover {
+		.thumb {
+			opacity: 0;
+		}
+
+		.actions {
+			opacity: 1;
+		}
+	}
+
+	.actions {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		height: calc(100% - 20px);
+		width: 100%;
+		opacity: 0;
+
+		transition: opacity 0.25s ease-out;
+
+		span {
+			cursor: pointer;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			font-size: 2em;
+			padding: 0.5rem;
+
+			border-radius: 50%;
+
+			transition: background-color 0.25s ease-out;
+
+			&:active {
+				background-color: $shadow;
+			}
+		}
+	}
+}

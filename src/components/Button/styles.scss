@@ -1,0 +1,25 @@
+@import "../../assets/css/Config";
+
+button.button-container {
+  all: unset;
+  padding: $unit $unit * 2;
+  background-color: #18161c;
+  color: white;
+  cursor: pointer;
+  border-radius: $unit * 0.5;
+
+  @include transition("background-color");
+
+  &.light {
+    background-color: white;
+    color: #18161c;
+
+    &:hover {
+      background-color: rgba(white, 0.75);
+    }
+  }
+
+  &:hover {
+    background-color: rgba(#18161c, 0.75);
+  }
+}

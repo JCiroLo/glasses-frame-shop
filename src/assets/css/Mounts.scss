@@ -1,0 +1,126 @@
+@import "Config";
+
+.mounts-slider {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+
+    opacity: 0;
+    visibility: hidden;
+    background-color: $back_modal_color;
+
+    transition: opacity 0.25s ease-out, visibility 0.25s ease-out;
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+
+        .mounts-section {
+            transform: scale(1);
+        }
+    }
+
+    .mounts-section {
+        position: relative;
+        max-height: 90%;
+        width: 66%;
+        border-radius: 0em;
+        padding: 0rem;
+        overflow-y: auto;
+
+        background-color: white;
+        transform: scale(0);
+
+        transition: transform 0.2s ease-out;
+
+        .title {
+            position: relative;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 1.25em;
+            color: black;
+
+            i {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                padding: 0 1rem;
+                cursor: pointer;
+                color: black !important;                
+            }
+        }
+
+        .content {
+            padding: 0.5rem 0;
+
+            .frame {
+                position: relative;
+                margin: 0em 0;
+                border-radius: 0;
+
+                transition: background-color 0.1s ease-out;
+
+                &.selected {
+                    background-color: $shadow;
+
+                    .info .more-info {
+                        visibility: visible;
+                    }
+                }
+
+                .thumb {
+                    transition: transform 0.1s;
+                    background-attachment: local;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center center;
+
+                    padding-bottom: 56.25%;
+
+                    &:active {
+                        transform: scale(0.9);
+                    }
+                }
+
+                .info {
+                    .more-info {
+                        position: absolute;
+
+                        top: 0;
+                        right: 0;
+                        visibility: hidden;
+                        margin: 0.5em;
+                        color: $PrincipalColor;
+                        cursor: pointer;
+                        user-select: none;
+
+                        .material-icons {
+                            font-size: 2em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mid devices
+@media screen and (max-width: 767.98px) {
+    .mounts-slider {
+        .mounts-section {
+            max-height: 95%;
+            min-height: 50%;
+            width: 95%;
+            overflow-y: auto;
+        }
+    }
+}
